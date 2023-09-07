@@ -8,6 +8,11 @@ let linhas = '';
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    adicionaLinha();
+    atualizaTabela();
+});
+
+function adicionaLinha() {
     const inputTituloAtividade = document.getElementById('titulo-atividade');
     const inputNotaAtividade = document.getElementById('nota-atividade');
 
@@ -19,10 +24,11 @@ form.addEventListener('submit', function(e) {
 
     linhas += linha;
 
-    const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML = linhas;
-
     inputTituloAtividade.value = '';
     inputNotaAtividade.value = '';
+}
 
-});
+function atualizaTabela() {
+    const corpoTabela = document.querySelector('tbody');
+    corpoTabela.innerHTML = linhas;
+}
